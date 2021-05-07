@@ -11,6 +11,10 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $guarded = [
+        'user_level_id',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -30,6 +34,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'user_level_id',
     ];
 
     /**
@@ -40,4 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function user_level()
+    {
+        return $this->hasOne('App\Models\UserLevel', 'id', 'user_level_id');
+    }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\TimeSlotController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,22 @@ Route::get('/upcoming', [AppointmentController::class, 'upcoming'])->name('appoi
 
 Route::get('/history', [AppointmentController::class, 'history'])->name('appointment.history');
 
+Route::get('/appointment/{id}/{title}', [AppointmentController::class, 'show'])->name('appointment.show');
+
+Route::get('/appointment/{id}/{title}/edit', [AppointmentController::class, 'edit'])->name('appointment.edit');
+
+Route::post('/appointment/{id}/update', [AppointmentController::class, 'update'])->name('appointment.update');
+
+Route::post('/appointment/{id}/update-outcome', [AppointmentController::class, 'updateOutcome'])->name('appointment.update.outcome');
+
+Route::get('/appointment/{id}/{title}/reschedule/date', [AppointmentController::class, 'rescheduleDate'])->name('appointment.reschedule.date');
+
+Route::get('/appointment/{id}/{title}/reschedule/date/time', [AppointmentController::class, 'rescheduleTime'])->name('appointment.reschedule.time');
+
+Route::post('/appointment/{id}/reschedule', [AppointmentController::class, 'reschedule'])->name('appointment.reschedule');
+
+Route::post('/appointment/{id}/delete', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
+
 Route::get('/doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
 
 Route::get('/doctor', [DoctorController::class, 'index'])->name('doctor');
@@ -46,6 +63,20 @@ Route::get('/timeslot', [TimeSlotController::class, 'index'])->name('timeslot');
 
 Route::get('/timeslot/{day}', [TimeSlotController::class, 'show'])->name('timeslot.show');
 
-Route::post('/timeslot/{day}/update', [TimeSlotController::class, 'update'])->name('timeslot.update');
+Route::get('/timeslot/{day}/{time}', [TimeSlotController::class, 'edit'])->name('timeslot.edit');
+
+Route::post('/timeslot/{day}/{time}/update', [TimeSlotController::class, 'update'])->name('timeslot.update');
+
+Route::post('/timeslot/{day}/{time}/{email}/delete', [TimeSlotController::class, 'destroy'])->name('timeslot.destroy');
+
+Route::get('/user/register', [AdminController::class, 'create'])->name('user.register');
+
+Route::post('/user/store', [AdminController::class, 'store'])->name('user.store');
+
+Route::get('/user', [AdminController::class, 'index'])->name('user');
+
+Route::get('/user/{email}/', [AdminController::class, 'show'])->name('user.show');
+
+Route::post('/user/{email}/update', [AdminController::class, 'update'])->name('user.update');
 
 require __DIR__.'/auth.php';

@@ -14,11 +14,6 @@ class DoctorController extends Controller
         $this->middleware(['auth']);
 
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function register()
     {
@@ -28,7 +23,6 @@ class DoctorController extends Controller
     public function index()
     {
         
-        // if(!empty($_GET['search']) || $_GET['search'] != null){
         if(isset($_GET['search'])) {
 
             $doctors = Doctor::where('email', 'LIKE', '%' . $_GET['search'] . '%')
@@ -47,22 +41,11 @@ class DoctorController extends Controller
         return view('doctor.doctor', compact('doctors'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -84,38 +67,19 @@ class DoctorController extends Controller
         return redirect()->action([DoctorController::class, 'index'])->with('success','Siberdoctor '.$request->email. ' has been registered successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
     public function show($email)
     {
 
         $doctor = Doctor::where('email', $email)->first();
 
-        return view('doctor.show', compact('doctor'));
+        return view('user.show', compact('doctor'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Doctor $doctor)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $email)
     {
 
@@ -137,12 +101,6 @@ class DoctorController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($email)
     {
         $doctor = Doctor::where('email', $email)->first();

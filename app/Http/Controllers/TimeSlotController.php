@@ -8,24 +8,197 @@ use Illuminate\Http\Request;
 
 class TimeSlotController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $timeslots = TimeSlot::get();
 
-        return view('timeslot.timeslot', compact('timeslots'));
+        // 9::00
+
+        $monday_nine = TimeSlot::where('day', 'Monday')
+                        ->where('time', '09:00:00')
+                        ->get();
+
+        $tuesday_nine = TimeSlot::where('day', 'Tuesday')
+                        ->where('time', '09:00:00')
+                        ->get();
+
+        $wednesday_nine = TimeSlot::where('day', 'Wednesday')
+                        ->where('time', '09:00:00')
+                        ->get();
+
+        $thursday_nine = TimeSlot::where('day', 'Thursday')
+                        ->where('time', '09:00:00')
+                        ->get();
+
+        $friday_nine = TimeSlot::where('day', 'Friday')
+                        ->where('time', '09:00:00')
+                        ->get();
+
+        // 10::00
+
+        $monday_ten = TimeSlot::where('day', 'Monday')
+                        ->where('time', '10:00:00')
+                        ->get();
+
+        $tuesday_ten = TimeSlot::where('day', 'Tuesday')
+                        ->where('time', '10:00:00')
+                        ->get();
+
+        $wednesday_ten = TimeSlot::where('day', 'Wednesday')
+                        ->where('time', '10:00:00')
+                        ->get();
+
+        $thursday_ten = TimeSlot::where('day', 'Thursday')
+                        ->where('time', '10:00:00')
+                        ->get();
+
+        $friday_ten = TimeSlot::where('day', 'Friday')
+                        ->where('time', '10:00:00')
+                        ->get();
+
+        // 11::00
+
+        $monday_eleven = TimeSlot::where('day', 'Monday')
+                        ->where('time', '11:00:00')
+                        ->get();
+
+        $tuesday_eleven = TimeSlot::where('day', 'Tuesday')
+                        ->where('time', '11:00:00')
+                        ->get();
+
+        $wednesday_eleven = TimeSlot::where('day', 'Wednesday')
+                        ->where('time', '11:00:00')
+                        ->get();
+
+        $thursday_eleven = TimeSlot::where('day', 'Thursday')
+                        ->where('time', '11:00:00')
+                        ->get();
+
+        $friday_eleven = TimeSlot::where('day', 'Friday')
+                        ->where('time', '11:00:00')
+                        ->get();
+
+        // 12::00
+
+        $monday_twelve = TimeSlot::where('day', 'Monday')
+                        ->where('time', '12:00:00')
+                        ->get();
+
+        $tuesday_twelve = TimeSlot::where('day', 'Tuesday')
+                        ->where('time', '12:00:00')
+                        ->get();
+
+        $wednesday_twelve = TimeSlot::where('day', 'Wednesday')
+                        ->where('time', '12:00:00')
+                        ->get();
+
+        $thursday_twelve = TimeSlot::where('day', 'Thursday')
+                        ->where('time', '12:00:00')
+                        ->get();
+
+        $friday_twelve = TimeSlot::where('day', 'Friday')
+                        ->where('time', '12:00:00')
+                        ->get();
+
+
+        // 13::00
+
+        $monday_thirteen = TimeSlot::where('day', 'Monday')
+                        ->where('time', '13:00:00')
+                        ->get();
+
+        $tuesday_thirteen = TimeSlot::where('day', 'Tuesday')
+                        ->where('time', '13:00:00')
+                        ->get();
+
+        $wednesday_thirteen = TimeSlot::where('day', 'Wednesday')
+                        ->where('time', '13:00:00')
+                        ->get();
+
+        $thursday_thirteen = TimeSlot::where('day', 'Thursday')
+                        ->where('time', '13:00:00')
+                        ->get();
+
+        $friday_thirteen = TimeSlot::where('day', 'Friday')
+                        ->where('time', '13:00:00')
+                        ->get();
+
+        // 14::00
+
+        $monday_fourteen = TimeSlot::where('day', 'Monday')
+                        ->where('time', '14:00:00')
+                        ->get();
+
+        $tuesday_fourteen = TimeSlot::where('day', 'Tuesday')
+                        ->where('time', '14:00:00')
+                        ->get();
+
+        $wednesday_fourteen = TimeSlot::where('day', 'Wednesday')
+                        ->where('time', '14:00:00')
+                        ->get();
+
+        $thursday_fourteen = TimeSlot::where('day', 'Thursday')
+                        ->where('time', '14:00:00')
+                        ->get();
+
+        $friday_fourteen = TimeSlot::where('day', 'Friday')
+                        ->where('time', '14:00:00')
+                        ->get();
+
+        // 15::00
+
+        $monday_fifteen = TimeSlot::where('day', 'Monday')
+                        ->where('time', '15:00:00')
+                        ->get();
+
+        $tuesday_fifteen = TimeSlot::where('day', 'Tuesday')
+                        ->where('time', '15:00:00')
+                        ->get();
+
+        $wednesday_fifteen = TimeSlot::where('day', 'Wednesday')
+                        ->where('time', '15:00:00')
+                        ->get();
+
+        $thursday_fifteen = TimeSlot::where('day', 'Thursday')
+                        ->where('time', '15:00:00')
+                        ->get();
+
+        $friday_fifteen = TimeSlot::where('day', 'Friday')
+                        ->where('time', '15:00:00')
+                        ->get();
+
+        // 16::00
+
+        $monday_sixteen = TimeSlot::where('day', 'Monday')
+                        ->where('time', '16:00:00')
+                        ->get();
+
+        $tuesday_sixteen = TimeSlot::where('day', 'Tuesday')
+                        ->where('time', '16:00:00')
+                        ->get();
+
+        $wednesday_sixteen = TimeSlot::where('day', 'Wednesday')
+                        ->where('time', '16:00:00')
+                        ->get();
+
+        $thursday_sixteen = TimeSlot::where('day', 'Thursday')
+                        ->where('time', '16:00:00')
+                        ->get();
+
+        $friday_sixteen = TimeSlot::where('day', 'Friday')
+                        ->where('time', '16:00:00')
+                        ->get();
+
+        return view('timeslot.timeslot', compact('monday_nine', 'tuesday_nine', 'wednesday_nine', 'thursday_nine', 'friday_nine',
+                                                'monday_ten', 'tuesday_ten', 'wednesday_ten', 'thursday_ten', 'friday_ten',
+                                                'monday_eleven', 'tuesday_eleven', 'wednesday_eleven', 'thursday_eleven', 'friday_eleven',
+                                                'monday_twelve', 'tuesday_twelve', 'wednesday_twelve', 'thursday_twelve', 'friday_twelve',
+                                                'monday_thirteen', 'tuesday_thirteen', 'wednesday_thirteen', 'thursday_thirteen', 'friday_thirteen',
+                                                'monday_fourteen', 'tuesday_fourteen', 'wednesday_fourteen', 'thursday_fourteen', 'friday_fourteen',
+                                                'monday_fifteen', 'tuesday_fifteen', 'wednesday_fifteen', 'thursday_fifteen', 'friday_fifteen',
+                                                'monday_sixteen', 'tuesday_sixteen', 'wednesday_sixteen', 'thursday_sixteen', 'friday_sixteen'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TimeSlot  $timeSlot
-     * @return \Illuminate\Http\Response
-     */
     public function show($day)
     {
 
@@ -62,112 +235,82 @@ class TimeSlotController extends Controller
         return view('timeslot.show', compact('nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'doctors', 'day'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TimeSlot  $timeSlot
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TimeSlot $timeSlot)
+    public function edit($day, $time)
     {
-        //
+        $doctors = Doctor::orderBy('users.created_at','desc')->get();
+
+        $timeslots = TimeSlot::where('day', $day)
+                        ->where('time', $time)->get();
+
+        $timeslots_count = TimeSlot::where('day', $day)
+                        ->where('time', $time)->count();
+
+        return view('timeslot.edit', compact('timeslots', 'timeslots_count', 'doctors', 'day', 'time'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TimeSlot  $timeSlot
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $day)
+    public function update(Request $request, $day, $time)
     {
-        $request->validate([
-            'nine' => 'required',
-            'ten' => 'required',
-            'eleven' => 'required',
-            'twelve' => 'required',
-            'thirteen' => 'required',
-            'fourteen' => 'required',
-            'fifteen' => 'required',
-            'sixteen' => 'required',
+
+        $validator = $request->validate([
+            'nine.*' => 'nullable',
         ]);
 
+        if($request->nine != null){
 
-        $nine = TimeSlot::where('day', $day)
-                        ->where('time', '09:00:00')->first();
-
-        $nine->doctor_id = $request->nine;
-
-        $nine->save();
+            $timeslots = TimeSlot::where('day', $day)
+                                ->where('time', date('G:i', strtotime($time)).":00")
+                                ->get();
 
 
-        $ten = TimeSlot::where('day', $day)
-                        ->where('time', '10:00:00')->first();
+            for ($i = 0; $i < count($request->nine); $i++) {
 
-        $ten->doctor_id = $request->ten;
+                foreach ($timeslots as $timeslot){
 
-        $ten->save();
+                    if( $timeslot->doctor_id == $request->nine[$i]){
 
+                        $timeslot_error = TimeSlot::where('doctor_id', $timeslot->doctor_id)
+                                                ->first();
 
-        $eleven = TimeSlot::where('day', $day)
-                            ->where('time', '11:00:00')->first();
-
-        $eleven->doctor_id = $request->eleven;
-
-        $eleven->save();
-
-
-        $twelve = TimeSlot::where('day', $day)
-                            ->where('time', '12:00:00')->first();
-
-        $twelve->doctor_id = $request->twelve;
-
-        $twelve->save();
+                        return back()->with('error', $timeslot_error->doctor->name.' has already in the Time Slot!');                
+    
+                    }
+    
+                }
+    
+            }
 
 
-        $thirteen = TimeSlot::where('day', $day)
-                            ->where('time', '13:00:00')->first();
+            for ($i = 0; $i < count($request->nine); $i++) {
 
-        $thirteen->doctor_id = $request->thirteen;
+                $insert_siberdoctor = new TimeSlot;
+    
+                $insert_siberdoctor->doctor_id = $request->nine[$i];
 
-        $thirteen->save();
+                $insert_siberdoctor->day = 'Monday';
 
+                $insert_siberdoctor->time = '9:00:00';
+    
+                $insert_siberdoctor->save();
+    
+            }
 
-        $fourteen = TimeSlot::where('day', $day)
-                            ->where('time', '14:00:00')->first();
-
-        $fourteen->doctor_id = $request->fourteen;
-
-        $fourteen->save();
-
-
-        $fifteen = TimeSlot::where('day', $day)
-                            ->where('time', '15:00:00')->first();
-
-        $fifteen->doctor_id = $request->fifteen;
-
-        $fifteen->save();
-
-
-        $sixteen = TimeSlot::where('day', $day)
-                            ->where('time', '16:00:00')->first();
-
-        $sixteen->doctor_id = $request->sixteen;
-
-        $sixteen->save();
+        }
 
         return back()->with('success','Time Slot has been updated successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\TimeSlot  $timeSlot
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(TimeSlot $timeSlot)
+    public function destroy(Request $request, $day, $time, $email)
     {
-        //
+
+        $doctor = Doctor::where('email', $email)->first();
+
+        $timeslot = TimeSlot::where('day', $day)
+                                ->where('time', date('G:i', strtotime($time)).":00" )
+                                ->where('doctor_id', $doctor->id)
+                                ->first();
+
+        $timeslot->delete();
+
+        return back()->with('success',$doctor->name.' has been deleted from the timeslot successfully!');
     }
 }

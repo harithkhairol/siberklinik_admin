@@ -3,7 +3,7 @@
         <a class="text-blue-500 font-bold" href="#">
         <span class="sr-only">Workflow</span>
         <!-- <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg" alt=""> -->
-        Siberklinik Booking System
+        Siberklinik Admin
         </a>
     </div>
     <div class="-mr-2 -my-2 md:hidden">
@@ -44,20 +44,25 @@
                 <div class="flex items-center w-full bg-gray-100 p-4 rounded-lg">
 
                         <div>
-                            <h3 class="text-gray-900 font-semibold">John Doe</h3>
-                            <h4 class="text-sm text-gray-700 mt-1">johndoe@gmail.com</h4>
+                            <h3 class="text-gray-900 font-semibold">{{ Auth::user()->name }}</h3>
+                            <h4 class="text-sm text-gray-700 mt-1">{{ Auth::user()->email }}</h4>
                             
                         </div>
                     </div>
                 <!-- <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Edit Profile</a> -->
 
-                <a href="#" class="flex items-center text-gray-600 py-2 cursor-pointer hover:bg-gray-100 text-gray-500 hover:text-gray-900 pl-2 pr-6 rounded-lg" role="menuitem">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <a href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="flex items-center text-gray-600 py-2 cursor-pointer hover:bg-gray-100 text-gray-500 hover:text-gray-900 pl-2 pr-6 rounded-lg" role="menuitem">
                 
-                    <span class="w-8 h-8 p-1 mr-4">
-                        <i data-feather="power"></i>
-                    </span> 
-                
-                <span>Log Out</span> </a>
+                        <span class="w-8 h-8 p-1 mr-4">
+                            <i data-feather="power"></i>
+                        </span> 
+                    
+                    <span>{{ __('Logout') }}</span> </a>
+
+                </form>
                 
             </div>
         </div>

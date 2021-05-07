@@ -84,7 +84,7 @@
             </div>
 
         
-            <a class="flex items-center text-base font-medium py-2 cursor-pointer pl-2 pr-6 rounded-lg {{ Route::is('appointment.book') ? 'text-blue-500 bg-blue-100' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100' }}">
+            <a class="nav-side-btn flex items-center text-base font-medium text-gray-500 hover:text-gray-900 py-2 cursor-pointer hover:bg-gray-100 pl-2 pr-6 rounded-lg">
                 <span class="w-8 h-8 p-1 mr-4">
                     <i data-feather="user"></i>
                 </span> 
@@ -92,7 +92,31 @@
                 <span class="w-full font-medium select-none">
                     User
                 </span>
+
+                <span class="chevron-down w-8 h-8 p-1 pl-4">
+                    <i data-feather="chevron-down"></i>
+                </span>
+
+                <span class="chevron-up hidden w-8 h-8 p-1 pl-4">
+                    <i data-feather="chevron-up"></i>
+                </span>
             </a>
+
+            <div class="nav-children hidden space-y-2">
+
+                <a href="{{ route('user.register') }}" class="flex items-center text-base font-medium py-2 cursor-pointer pl-2 pr-6 rounded-lg {{ Route::is('user.register') ? 'text-blue-500 bg-blue-100' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100' }}">
+                    <span class="font-medium select-none">
+                        Register
+                    </span>
+                </a>
+                
+                <a href="{{ route('user') }}" class="flex items-center text-base font-medium py-2 cursor-pointer pl-2 pr-6 rounded-lg {{ Route::is('user') ? 'text-blue-500 bg-blue-100' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100' }}">
+                    <span class="font-medium select-none">
+                        Users
+                    </span>
+                </a>
+            
+            </div>
 
             <hr class="flex w-full items-center text-gray-500 pl-2 pr-6">
 

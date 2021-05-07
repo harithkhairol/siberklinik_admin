@@ -17,7 +17,7 @@
                 <div>
                     <a class="text-blue-500 font-bold" href="#">
                     <span class="sr-only">Workflow</span>
-                        Siberklinik Booking System
+                        Siberklinik Admin
                     </a>
                 </div>
                 <div class="-mr-2">
@@ -112,16 +112,39 @@
                     
                     </div>
 
-                    
-                    <a class="nav-side-btn flex items-center py-2 cursor-pointer pl-2 pr-6 -m-3 p-3 rounded-md {{ Route::is('appointment.book') ? 'text-blue-500 bg-blue-100' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100' }}">
+                    <a class="nav-side-btn flex items-center text-gray-500 hover:text-gray-900 py-2 cursor-pointer pl-2 pr-6 -m-3 p-3 rounded-md hover:bg-gray-50">
                         <span class="w-8 h-8 p-1 mr-4">
-                            <i class="text-gray-500" data-feather="user"></i>
+                            <i data-feather="user"></i>
                         </span> 
                         
                         <span class="w-full font-medium text-gray-900 select-none">
                             User
                         </span>
+
+                        <span class="chevron-down w-8 h-8 p-1 pl-4">
+                            <i data-feather="chevron-down"></i>
+                        </span>
+
+                        <span class="chevron-up hidden w-8 h-8 p-1 pl-4">
+                            <i data-feather="chevron-up"></i>
+                        </span>
+        
                     </a>
+
+                    <div class="nav-children hidden space-y-2">
+
+                        <a href="{{ route('user.register') }}" class="flex items-center text-base font-medium py-2 cursor-pointer pl-2 pr-6 rounded-lg {{ Route::is('doctor.register') ? 'text-blue-500 bg-blue-100' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100' }}">
+                            <span class="font-medium select-none">
+                                Register
+                            </span>
+                        </a>
+                        <a href="{{ route('user') }}" class="flex items-center text-base font-medium py-2 cursor-pointer pl-2 pr-6 rounded-lg {{ Route::is('user') ? 'text-blue-500 bg-blue-100' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100' }}">
+                            <span class="font-medium select-none">
+                                Users
+                            </span>
+                        </a>
+
+                    </div>
 
                 </nav>
             </div>
@@ -142,16 +165,25 @@
 
             <div class="flex items-center w-full bg-gray-100 p-4 rounded-lg">
                 <div>
-                    <h3 class="text-gray-900 font-semibold">John Doe</h3>
-                    <h4 class="text-sm text-gray-700 mt-1">johndoe@gmail.com</h4>
+                    <h3 class="text-gray-900 font-semibold">{{ Auth::user()->name }}</h3>
+                    <h4 class="text-sm text-gray-700 mt-1">{{ Auth::user()->email }}</h4>
                     
                 </div>
             </div>
 
             <div>
-                <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700">
-                    Log Out
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <a href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="flex items-center text-gray-600 py-2 cursor-pointer hover:bg-gray-100 text-gray-500 hover:text-gray-900 pl-2 pr-6 rounded-lg" role="menuitem">
+                
+                        <span class="w-8 h-8 p-1 mr-4">
+                            <i data-feather="power"></i>
+                        </span> 
+                    
+                    <span>{{ __('Logout') }}</span> </a>
+
+                </form>
             </div>
         </div>
     </div>

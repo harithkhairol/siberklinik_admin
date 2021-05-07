@@ -20,184 +20,102 @@
         <h1 class="font-semibold text-xl px-1 py-3 mb-2 ml-2">{{ $day }}</h1>
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
 
-                    <form action="{{ route('timeslot.update', $day) }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead >
-                                <tr>
-                                    
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
-                                        <span class="align-middle">9:00</span>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
-                                        <span class="align-middle">10:00</span>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
-                                        <span class="align-middle">11:00</span>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
-                                        <span class="align-middle">12:00</span>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
-                                        <span class="align-middle">13:00</span>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
-                                        <span class="align-middle">14:00</span>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
-                                        <span class="align-middle">15:00</span>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
-                                        <span class="align-middle">16:00</span>
-                                    </th>
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead >
+                            <tr>
+                                
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
+                                    <span class="align-middle">9:00</span>
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
+                                    <span class="align-middle">10:00</span>
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
+                                    <span class="align-middle">11:00</span>
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
+                                    <span class="align-middle">12:00</span>
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
+                                    <span class="align-middle">13:00</span>
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
+                                    <span class="align-middle">14:00</span>
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
+                                    <span class="align-middle">15:00</span>
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider items-center">
+                                    <span class="align-middle">16:00</span>
+                                </th>
 
-                                    <!-- <th scope="col" class="relative px-6 py-3">
-                                        <span class="sr-only">Edit</span>
-                                    </th> -->
-                                </tr>
-                            </thead>
+                            </tr>
+                        </thead>
 
-                            <!-- <td class="flex px-6 py-6 whitespace-nowrap text-right text-sm font-medium space-x-3 items-center">
-                                <a href="#" class="text-blue-500 hover:text-blue-900"><i data-feather="edit"></i></a>
-                            </td> -->
 
-                            <tbody class="divide-y divide-gray-200">
+                        <tbody class="divide-y divide-gray-200">
 
-                                <tr>
+                            <tr>
 
-                                    <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
 
-                                        <select id="nine" name="nine" autocomplete="type" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-base rounded-none relative text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-base appearance-none">
-                                            <option value="0" {{ $nine->doctor_id == '0' ? 'selected' : '' }}>None</option>
+                                    <a href="{{ route('timeslot.edit', [$day, '9:00']) }}" class="text-blue-500 hover:text-blue-900"><i class="inline" data-feather="edit"></i></a>
+                                
+                                </td>
 
-                                            @foreach($doctors as $doctor)
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
 
-                                                <option value="{{ $doctor->id }}" {{ $doctor->id == $nine->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}</option>
+                                    <a href="{{ route('timeslot.edit', [$day, '10:00']) }}" class="text-blue-500 hover:text-blue-900"><i class="inline" data-feather="edit"></i></a>
+                                
+                                </td>
 
-                                            @endforeach
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
 
-                                        </select>
-                                    
-                                    </td>
+                                    <a href="{{ route('timeslot.edit', [$day, '11:00']) }}" class="text-blue-500 hover:text-blue-900"><i class="inline" data-feather="edit"></i></a>
+                                
+                                </td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
 
-                                        <select id="ten" name="ten" autocomplete="type" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-base rounded-none relative text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-base appearance-none">
-                                            <option value="0" {{ $ten->doctor_id == '0' ? 'selected' : '' }}>None</option>
+                                    <a href="{{ route('timeslot.edit', [$day, '12:00']) }}" class="text-blue-500 hover:text-blue-900"><i class="inline" data-feather="edit"></i></a>
+                                
+                                </td>
 
-                                            @foreach($doctors as $doctor)
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
 
-                                                <option value="{{ $doctor->id }}" {{ $doctor->id == $ten->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}</option>
+                                    <a href="{{ route('timeslot.edit', [$day, '13:00']) }}" class="text-blue-500 hover:text-blue-900"><i class="inline" data-feather="edit"></i></a>
+                                
+                                </td>
 
-                                            @endforeach
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
 
-                                        </select>
-                                    
-                                    </td>
+                                    <a href="{{ route('timeslot.edit', [$day, '14:00']) }}" class="text-blue-500 hover:text-blue-900"><i class="inline" data-feather="edit"></i></a>
+                                
+                                </td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
 
-                                        <select id="eleven" name="eleven" autocomplete="type" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-base rounded-none relative text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-base appearance-none">
-                                            <option value="0" {{ $eleven->doctor_id == '0' ? 'selected' : '' }}>None</option>
+                                    <a href="{{ route('timeslot.edit', [$day, '15:00']) }}" class="text-blue-500 hover:text-blue-900"><i class="inline" data-feather="edit"></i></a>
+                                
+                                </td>
 
-                                            @foreach($doctors as $doctor)
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
 
-                                                <option value="{{ $doctor->id }}" {{ $doctor->id == $eleven->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}</option>
+                                    <a href="{{ route('timeslot.edit', [$day, '16:00']) }}" class="text-blue-500 hover:text-blue-900"><i class="inline" data-feather="edit"></i></a>
+                                
+                                </td>
+                            </tr>
 
-                                            @endforeach
+                        </tbody>
+                    </table>
 
-                                        </select>
-                                    
-                                    </td>
+                    <div class="px-4 py-3 bg-white text-right sm:px-6">
 
-                                    <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                    </div>
 
-                                        <select id="twelve" name="twelve" autocomplete="type" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-base rounded-none relative text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-base appearance-none">
-                                            <option value="0" {{ $twelve->doctor_id == '0' ? 'selected' : '' }}>None</option>
-
-                                            @foreach($doctors as $doctor)
-
-                                                <option value="{{ $doctor->id }}" {{ $doctor->id == $twelve->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}</option>
-
-                                            @endforeach
-
-                                        </select>
-                                    
-                                    </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-
-                                        <select id="thirteen" name="thirteen" autocomplete="type" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-base rounded-none relative text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-base appearance-none">
-                                            <option value="0" {{ $thirteen->doctor_id == '0' ? 'selected' : '' }}>None</option>
-
-                                            @foreach($doctors as $doctor)
-
-                                                <option value="{{ $doctor->id }}" {{ $doctor->id == $thirteen->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}</option>
-
-                                            @endforeach
-
-                                        </select>
-                                    
-                                    </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-
-                                        <select id="fourteen" name="fourteen" autocomplete="type" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-base rounded-none relative text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-base appearance-none">
-                                            <option value="0" {{ $fourteen->doctor_id == '0' ? 'selected' : '' }}>None</option>
-
-                                            @foreach($doctors as $doctor)
-
-                                                <option value="{{ $doctor->id }}" {{ $doctor->id == $fourteen->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}</option>
-
-                                            @endforeach
-
-                                        </select>
-                                    
-                                    </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-
-                                        <select id="fifteen" name="fifteen" autocomplete="type" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-base rounded-none relative text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-base appearance-none">
-                                            <option value="0" {{ $fifteen->doctor_id == '0' ? 'selected' : '' }}>None</option>
-
-                                            @foreach($doctors as $doctor)
-
-                                                <option value="{{ $doctor->id }}" {{ $doctor->id == $fifteen->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}</option>
-
-                                            @endforeach
-
-                                        </select>
-                                    
-                                    </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-
-                                        <select id="sixteen" name="sixteen" autocomplete="type" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-base rounded-none relative text-gray-900 focus:ring-blue-500 focus:border-blue-500 sm:text-base appearance-none">
-                                            <option value="0" {{ $sixteen->doctor_id == '0' ? 'selected' : '' }}>None</option>
-
-                                            @foreach($doctors as $doctor)
-
-                                                <option value="{{ $doctor->id }}" {{ $doctor->id == $sixteen->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}</option>
-
-                                            @endforeach
-
-                                        </select>
-                                    
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-
-                        <div class="px-4 py-3 bg-white text-right sm:px-6">
-                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                Update
-                            </button>
-                        </div>
-
-                    </form>
 
                 </div>
             </div>
@@ -207,4 +125,5 @@
 
     </div>
 </div>
+
 @endsection

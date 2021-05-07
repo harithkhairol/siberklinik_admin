@@ -55,340 +55,927 @@
 
                         <tbody class="divide-y divide-gray-200">
 
-                            @for ($i = 9; $i <= 16; $i++)
+                            <!--9 :00 -->
 
-                                <tr>
+                            <tr>
+                            
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    9:00
+                                </td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $i }}:00
-                                    </td>
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
 
-                                    @foreach ($timeslots as $timeslot)
-                                        
-                                        <!-- At 9:00 -->
-                                        @if($timeslot->time == "0".$i.":00:00")
+                                            @forelse ($monday_nine as $timeslot)
 
-                                            <!-- Monday -->
-                                            @if($timeslot->day == "Monday")
-
-                                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
-
-                                                            @else
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
-
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
-
-                                                            @endif
-
-                                                        </div>
-                                                    </div>
-                                                </td>
-
-                                            @endif
-
-                                            <!-- Tuesday -->
-                                            @if($timeslot->day == "Tuesday")
-
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
-
-                                                            @else
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
-
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
-
-                                                            @endif
-
-                                                        </div>
-                                                    </div>
-                                                </td>
-
-                                            @endif
-
-                                            <!-- Wednesday -->
-                                            @if($timeslot->day == "Wednesday")
-
-                                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
-
-                                                            @else
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
-
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
-
-                                                            @endif
-
-                                                        </div>
-                                                    </div>
-                                                </td>
-
-                                            @endif
-
-                                            <!-- Thursday -->
-                                            @if($timeslot->day == "Thursday")
-
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
-
-                                                            @else
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
-
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
-
-                                                            @endif
-
-                                                        </div>
-                                                    </div>
-                                                </td>
-
-                                            @endif
-
-                                            <!-- Friday -->
-                                            @if($timeslot->day == "Friday")
-
-                                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
-
-                                                            @else
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
-
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
-
-                                                            @endif
-
-                                                        </div>
-                                                    </div>
-                                                </td>
-
-                                            @endif
-
-                                        <!-- After 9:00 -->
-                                        @elseif($timeslot->time == $i.":00:00")
-
-                                            <!-- Monday -->
-                                            @if($timeslot->day == "Monday")
-
-                                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
-                                    
-                                                            @else
-
-                                                                <div class="text-sm text-gray-900">
-                                                                    Jane Cooper
-                                                                </div>
-
-                                                                <div class="text-sm text-gray-500">
-                                                                    01X-XXXXXXX
-                                                                </div>
-
-                                                            @endif
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
                                                 
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                            @empty
 
-                                            @endif
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
 
-                                            <!-- Tuesday -->
-                                            @if($timeslot->day == "Tuesday")
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
 
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
 
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
+                                            @forelse ($tuesday_nine as $timeslot)
 
-                                                            @else
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
 
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
 
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
 
-                                                            @endif
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
 
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                            @forelse ($wednesday_nine as $timeslot)
 
-                                            @endif
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
 
-                                            <!-- Wednesday -->
-                                            @if($timeslot->day == "Wednesday")
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
 
-                                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
 
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
 
-                                                            @else
+                                            @forelse ($thursday_nine as $timeslot)
 
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
 
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
 
-                                                            @endif
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
 
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
 
-                                            @endif
+                                            @forelse ($friday_nine as $timeslot)
 
-                                            <!-- Thursday -->
-                                            @if($timeslot->day == "Thursday")
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
 
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
 
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
 
-                                                            @else
+                            </tr>
 
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
+                            <!-- 10:00 -->
 
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
+                            <tr>
+                            
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    10:00
+                                </td>
 
-                                                            @endif
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
 
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                            @forelse ($monday_ten as $timeslot)
 
-                                            @endif
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
 
-                                            <!-- Friday -->
-                                            @if($timeslot->day == "Friday")
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
 
-                                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
-                                                    <div class="flex items-center">                                    
-                                                        <div>
-                                                            
-                                                            @if($timeslot->doctor_id == "0")
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
 
-                                                                <div class="text-sm text-gray-900">
-                                                                    None
-                                                                </div>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
 
-                                                            @else
+                                            @forelse ($tuesday_ten as $timeslot)
 
-                                                                <div class="text-sm text-gray-900">
-                                                                    {{ $timeslot->doctor->name }}
-                                                                </div>
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
 
-                                                                <div class="text-sm text-gray-500">
-                                                                    {{ $timeslot->doctor->phone_no }}
-                                                                </div>
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
 
-                                                            @endif
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
 
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
 
-                                            @endif
+                                            @forelse ($wednesday_ten as $timeslot)
 
-                                        @endif
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
 
-                                    @endforeach
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
 
-                                </tr>
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
 
-                            @endfor
-                   
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($thursday_ten as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($friday_ten as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <!-- 11:00 -->
+
+                            <tr>
+                            
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    11:00
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($monday_eleven as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($tuesday_eleven as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($wednesday_eleven as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($thursday_eleven as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($friday_eleven as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <!-- 12:00 -->
+
+                            <tr>
+                            
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    12:00
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($monday_twelve as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($tuesday_twelve as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($wednesday_twelve as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($thursday_twelve as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($friday_twelve as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <!-- 13:00 -->
+
+                            <tr>
+                            
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    13:00
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($monday_thirteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($tuesday_thirteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($wednesday_thirteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($thursday_thirteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($friday_thirteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <!-- 14:00 -->
+
+                            <tr>
+                            
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    14:00
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($monday_fourteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($tuesday_fourteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($wednesday_fourteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($thursday_fourteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($friday_fourteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <!-- 15:00 -->
+
+                            <tr>
+                            
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    15:00
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($monday_fifteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($tuesday_fifteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($wednesday_fifteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($thursday_fifteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($friday_fifteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <!-- 16:00 -->
+
+                            <tr>
+                            
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    16:00
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($monday_sixteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($tuesday_sixteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($wednesday_sixteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($thursday_sixteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap bg-gray-100">
+                                    <div class="flex items-center">                                    
+                                        <div>
+
+                                            @forelse ($friday_sixteen as $timeslot)
+
+                                                <div class="text-sm text-gray-900">
+                                                    {{ $loop->iteration.') '.$timeslot->doctor->name }}
+                                                </div>
+                                                
+                                            @empty
+
+                                                <div class="text-sm text-gray-900">
+                                                    None
+                                                </div>
+
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            
                     </tbody>
                     </table>
 
