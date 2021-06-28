@@ -153,7 +153,9 @@
     </div>
 </div>
 
-<script>
+<script nonce="HiKXla3KMpqbUaEPadLeV5607Yl/7/uTaSOa">
+
+        var url = "{{ config('app.url') }}";
 
         $(document).ready(function () {
 
@@ -219,7 +221,7 @@
 
                 let email = $('#modal-button').val();
 
-                $('#modal-action').attr("action", '/timeslot/{{ $day }}/{{ date('G.i', strtotime($time)) }}/'+email+'/delete');
+                $('#modal-action').attr("action", url+'timeslot/{{ $day }}/{{ date('G.i', strtotime($time)) }}/'+email+'/delete');
 
             });
 

@@ -54,13 +54,13 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <a href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="flex items-center text-gray-600 py-2 cursor-pointer hover:bg-gray-100 text-gray-500 hover:text-gray-900 pl-2 pr-6 rounded-lg" role="menuitem">
+                    <button href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="flex items-center text-gray-600 py-2 cursor-pointer hover:bg-gray-100 text-gray-500 hover:text-gray-900 pl-2 pr-6 rounded-lg w-full" role="menuitem">
                 
                         <span class="w-8 h-8 p-1 mr-4">
                             <i data-feather="power"></i>
                         </span> 
                     
-                    <span>{{ __('Logout') }}</span> </a>
+                    <span>{{ __('Logout') }}</span> </button>
 
                 </form>
                 

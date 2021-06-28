@@ -14,13 +14,13 @@ class CreateTimeSlotsTable extends Migration
     public function up()
     {
 
-        Schema::connection('mysql2')->create('time_slots', function (Blueprint $table) {
-            $table->id();
-            $table->biginteger('doctor_id')->default(0);
-            $table->enum('day', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']);
-            $table->time('time');
-            $table->timestamps();
-        });
+        // Schema::connection('mysql2')->create('time_slots', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->biginteger('doctor_id')->default(0);
+        //     $table->enum('day', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']);
+        //     $table->time('time');
+        //     $table->timestamps();
+        // });
 
     }
 
@@ -31,6 +31,6 @@ class CreateTimeSlotsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql2')->dropIfExists('time_slots');
+        // Schema::connection('mysql2')->dropIfExists('time_slots');
     }
 }

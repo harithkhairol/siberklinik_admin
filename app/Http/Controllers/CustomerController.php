@@ -7,79 +7,68 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+
+        $this->middleware(['auth']);
+
+    }
+
     public function index()
     {
-        //
+        
+        if(isset($_GET['search'])) {
+
+            $customers = Customer::where('email', 'LIKE', '%' . $_GET['search'] . '%')
+                                ->orWhere('name', 'LIKE', '%' . $_GET['search'] . '%')
+                                ->orWhere('phone_no', 'LIKE', '%' . $_GET['search'] . '%')
+                                ->orderBy('created_at','desc')->paginate(10);
+        
+        }
+        else{
+
+            $customers = Customer::orderBy('created_at','desc')->paginate(10);
+
+        }
+
+        return view('customer.customer', compact('customers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show($email)
     {
-        //
+
+        $customer = Customer::where('email', $email)->first();
+
+        return view('customer.show', compact('customer'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function update(Request $request, $email)
     {
-        //
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone_no' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+        ]);
+
+        $customer = Customer::where('email', $email)->first();
+
+        $customer->name = $request->name;
+        $customer->phone_no = $request->phone_no;
+
+        $customer->save();
+
+        return back()->with('success','Customer '.$email.' has been updated successfully!');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Customer $customer)
+    public function destroy($email)
     {
-        //
-    }
+        $customer = Customer::where('email', $email)->first();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Customer $customer)
-    {
-        //
-    }
+        $customer->delete();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Customer $customer)
-    {
-        //
+        return back()->with('success','Customer '.$email.' has been deleted successfully!');
     }
 }

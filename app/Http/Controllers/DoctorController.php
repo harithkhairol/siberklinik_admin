@@ -51,7 +51,7 @@ class DoctorController extends Controller
         $request->validate([
             'type' => 'required|string',
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:mysql2.users',
             'phone_no' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'password' => 'required|string|confirmed|min:8',
         ]);
@@ -72,7 +72,7 @@ class DoctorController extends Controller
 
         $doctor = Doctor::where('email', $email)->first();
 
-        return view('user.show', compact('doctor'));
+        return view('doctor.show', compact('doctor'));
     }
 
     public function edit(Doctor $doctor)

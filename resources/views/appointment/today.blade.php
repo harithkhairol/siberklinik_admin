@@ -90,7 +90,7 @@
     </div>
 
     <div class="flex flex-col mb-1">
-        <h1 class="font-semibold text-xl px-1 py-3 mb-2 ml-2">Schedule - 1 February 2021</h1>
+        <h1 class="font-semibold text-xl px-1 py-3 mb-2 ml-2">Schedule - {{ date('d F Y', strtotime(now())) }}</h1>
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
@@ -199,40 +199,7 @@
 
 </div>
 
-<script>
-
-
-
-$(document).ready(function() { 
-
-    var d = new Date();
-    var n = d.getHours();
-    
-    function refreshAt(hours, minutes, seconds) {
-
-        var now = new Date();
-        var then = new Date();
-
-        if(now.getHours() > hours || (now.getHours() == hours && now.getMinutes() > minutes) || now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) 
-        {
-            then.setDate(now.getDate() + 1);
-        }
-        
-        then.setHours(hours);
-        then.setMinutes(minutes);
-        then.setSeconds(seconds);
-
-        var timeout = (then.getTime() - now.getTime());
-        
-        setTimeout(function() { window.location.reload(true); }, timeout);
-
-    }  
-
-    refreshAt(n+1,0,0);  
-       
-
-});
-
-</script>
+<script nonce="HiKXla3KMpqbUaEPadLeV5607Yl/7/uTaSOa">var url = "{{ config('app.url') }}";</script>
+<script src="{{ asset('js/today.js') }}"></script>
 
 @endsection

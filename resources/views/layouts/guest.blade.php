@@ -8,8 +8,8 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <title>@yield('title')</title> 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/feather.min.js') }}"></script>
 
         <!-- Fonts -->
 
@@ -38,31 +38,6 @@
                     </svg>
                 </button>
             </div>
-            <nav class="hidden md:flex space-x-10">
-             
-<!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                How It Works
-                </a>
-                <!-- <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                Faqs
-                </a> -->
-
-                <div class="relative">
-                <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                <button type="button" class="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    <span>About Us</span>
-                    <!--
-                    Heroicon name: chevron-down
-
-                    Item active: "text-gray-600", Item inactive: "text-gray-400"
-                    -->
-
-                </button>
-
-        
-                </div>
-            </nav>
 
             <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
@@ -120,27 +95,7 @@
                     </button>
                 </div>
                 </div>
-                <div class="mt-6">
-                <nav class="grid gap-y-8">
-                    <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                    <!-- <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                    </svg> -->
-                    <i class="text-blue-500" data-feather="thumbs-up"></i>
-                    <span class="ml-3 text-base font-medium text-gray-900">
-                        How It Works
-                    </span>
-                    </a>
 
-                    <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                    <i class="text-blue-500" data-feather="info"></i>
-                    <span class="ml-3 text-base font-medium text-gray-900">
-                        About Us
-                    </span>
-                    </a>
-
-                </nav>
-                </div>
             </div>
 
             <div class="py-6 px-5 space-y-6">
@@ -279,25 +234,4 @@
     
 </html>
 
-<script>
-
-
-$("#navBtn").click(function(){
-  $("#navMobile").toggle();
-});
-
-$("#navMobileClose").click(function(){
-  $("#navMobile").toggle();
-});
-
-feather.replace();
-
-$("#close-notification").click(function() {
-    
-    $("#notification").fadeOut("fast", function() {
-        $("#notification").remove();
-    });
-
-});
-
-</script>
+<script src="{{ asset('js/guest-footer.js') }}"></script>

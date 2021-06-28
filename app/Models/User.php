@@ -11,10 +11,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $guarded = [
-        'user_level_id',
-    ];
-
     /**
      * The attributes that are mass assignable.
      *
@@ -24,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_level_id'
     ];
 
     /**

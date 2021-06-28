@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 class TimeSlotController extends Controller
 {
 
+    public function __construct()
+    {
+
+        $this->middleware(['auth']);
+
+    }
+
     public function index()
     {
 
@@ -286,9 +293,9 @@ class TimeSlotController extends Controller
     
                 $insert_siberdoctor->doctor_id = $request->nine[$i];
 
-                $insert_siberdoctor->day = 'Monday';
+                $insert_siberdoctor->day = $day;
 
-                $insert_siberdoctor->time = '9:00:00';
+                $insert_siberdoctor->time = date('G:i', strtotime($time)).":00";
     
                 $insert_siberdoctor->save();
     

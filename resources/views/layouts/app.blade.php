@@ -7,14 +7,11 @@
 
         <title>@yield('title')</title> 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/feather.min.js') }}"></script>
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -120,61 +117,4 @@
     
 </html>
 
-<script>
-
-feather.replace();
-
-$("#navBtn").click(function(){
-  $("#navMobile").toggle();
-});
-
-$("#navMobileClose").click(function(){
-  $("#navMobile").toggle();
-});
-
-$("#navUserOpen").click(function(){
-  $("#navUser").toggle();
-});
-
-// if click outside user menu, close the user modal
-$(document).on("click", function(event){
-
-var $trigger = $("#navUserOpen");
-
-if($trigger !== event.target && !$trigger.has(event.target).length){
-    $("#navUser").hide();
-}            
-
-});
-
-
-$(".nav-side-btn").click(function(){
-
-    $(this).next().toggle('fast', function(){
-
-        if ($(this).is(':visible')) {
-
-            $(this).prev().find(".chevron-down").hide();
-            $(this).prev().find(".chevron-up").show();
-
-        } 
-
-        else {
-
-            $(this).prev().find(".chevron-down").show();
-            $(this).prev().find(".chevron-up").hide();
-
-        }    
-
-    });
-
-});
-
-$("#close-notification").click(function() {
-        $("#notification").remove();
-});
-
-
-
-</script>
-
+<script src="{{ asset('js/footer.js') }}"></script>

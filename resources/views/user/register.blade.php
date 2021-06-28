@@ -39,6 +39,8 @@
 
                                             @foreach ($user_levels as $user_level)
                                                 <option value="{{ $user_level->id }}">{{ $user_level->name }}</option>
+
+                                            @break
                                             @endforeach
                                             
                                         </select>

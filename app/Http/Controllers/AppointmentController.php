@@ -18,19 +18,21 @@ class AppointmentController extends Controller
 
     }
 
-    public function index()
-    {
-        //
-    }
-
     public function today()
     {
+        // $date = "2021-06-18";	
 
-        $appointment_today = Appointment::where('date', '2021-03-29')->orderBy('time', 'asc')->get();
+        // $appointment_today = Appointment::where('date', $date)->orderBy('time', 'asc')->get();
 
-        $appointment_now = Appointment::where('date', '2021-03-29')->whereTime('time', '>=', date('H').':00:00')->whereTime('time', '<', (date('H')+1).':00:00')->get();
+        // $appointment_now = Appointment::where('date', $date)->whereTime('time', '>=', date('H').':00:00')->whereTime('time', '<', (date('H')+1).':00:00')->get();
 
-        $appointment_next = Appointment::where('date', '2021-03-29')->whereTime('time', '>=', (date('H')+1).':00:00')->whereTime('time', '<', '17:00:00')->get();
+        // $appointment_next = Appointment::where('date', $date)->whereTime('time', '>=', (date('H')+1).':00:00')->whereTime('time', '<', '17:00:00')->get();
+
+        $appointment_today = Appointment::where('date', date('Y-m-d'))->orderBy('time', 'asc')->get();
+
+        $appointment_now = Appointment::where('date', date('Y-m-d'))->whereTime('time', '>=', date('H').':00:00')->whereTime('time', '<', (date('H')+1).':00:00')->get();
+
+        $appointment_next = Appointment::where('date', date('Y-m-d'))->whereTime('time', '>=', (date('H')+1).':00:00')->whereTime('time', '<', '17:00:00')->get();
         	
         return view('appointment.today', compact('appointment_today', 'appointment_now', 'appointment_next'));
 
@@ -207,7 +209,7 @@ class AppointmentController extends Controller
         if(!isset($timeslot)){
 
             return redirect()->action(
-                [AppointmentController::class, 'bookTime'], ['type' => $type, 'category' => $category, 'title' => $title, 'description' => $description, 'date' => $date, 'time' => $time]
+                [AppointmentController::class, 'rescheduleTime'], ['id' => $id, 'type' => $type, 'category' => $category, 'title' => $title, 'description' => $description, 'date' => $date, 'time' => $time]
             )->with('error', 'Appointment has been fully booked on '.date('d/m/Y', strtotime($date)).'!');
 
         }
@@ -222,7 +224,7 @@ class AppointmentController extends Controller
         if(count($timeslots) < 1){
 
             return redirect()->action(
-                [AppointmentController::class, 'bookTime'], ['type' => $type, 'category' => $category, 'title' => $title, 'description' => $description, 'date' => $date, 'time' => $time]
+                [AppointmentController::class, 'rescheduleTime'], ['id' => $id, 'type' => $type, 'category' => $category, 'title' => $title, 'description' => $description, 'date' => $date, 'time' => $time]
             )->with('error', 'Appointment has been booked on '.date('d/m/Y', strtotime($date)).' at '.date('G:i', strtotime($time)).'!');
 
         }

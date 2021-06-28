@@ -84,10 +84,10 @@
                                     <td class="flex px-6 py-6 whitespace-nowrap text-right text-sm font-medium space-x-3 items-center">
                                         <a href="{{ route('user.show', $user->email) }}" class="text-blue-500 hover:text-blue-900"><i data-feather="edit"></i></a>
                                             
-                                            <a class="delete-modal text-blue-500 hover:text-blue-900" data-email="{{ $user->email }}">
+                                            <!-- <a class="delete-modal text-blue-500 hover:text-blue-900" data-email="{{ $user->email }}">
                                                 <i data-feather="x-circle"></i>
                                             </a>
-                        
+                         -->
                                     </td>
 
                                     
@@ -109,36 +109,6 @@
     </div>
 </div>
 
-<script>
+<script src="{{ asset('js/user.js') }}"></script>
 
-// $(".open").on("click", function() {
-//   $(".popup-overlay, .popup-content").addClass("active");
-// });
-
-//removes the "active" class to .popup and .popup-content when the "Close" button is clicked 
-$(".delete-modal").on("click", function() {
-
-    let email = $(this).data('email');
-    
-    $("#modal").removeClass("hidden");
-    $("#modal-headline").text("Delete "+email+"?");
-    $("#modal-content").text("Are you sure you want to delete "+email+"?");
-    $('#modal-button').val(email);
-
-});
-
-$("#modal-button").on("click", function() {
-
-    let email = $('#modal-button').val();
-
-    $('#modal-action').attr("action", '/user/'+email+'/delete');
-    
-});
-
-
-$(".close-modal").on("click", function() {
-  $("#modal").addClass("hidden");
-});
-
-</script>
 @endsection

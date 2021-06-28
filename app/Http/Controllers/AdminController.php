@@ -24,7 +24,15 @@ class AdminController extends Controller
         
         if(isset($_GET['search'])) {
 
-            $users = User::whereNotIn('user_level_id', [0, 1])
+            // $users = User::whereNotIn('user_level_id', [0, 1])
+            //                     ->where(function ($query) {
+            //                         $query->where('email', 'LIKE', '%' . $_GET['search'] . '%')
+            //                         ->orWhere('name', 'LIKE', '%' . $_GET['search'] . '%');
+                                    
+            //                     })
+            //                     ->orderBy('users.created_at','desc')->paginate(10);
+
+            $users = User::whereNotIn('user_level_id', [0, 2])
                                 ->where(function ($query) {
                                     $query->where('email', 'LIKE', '%' . $_GET['search'] . '%')
                                     ->orWhere('name', 'LIKE', '%' . $_GET['search'] . '%');
@@ -35,7 +43,9 @@ class AdminController extends Controller
         }
         else{
     
-            $users = User::whereNotIn('user_level_id', [0, 1])->orderBy('users.created_at','desc')->paginate(10);
+            // $users = User::whereNotIn('user_level_id', [0, 1])->orderBy('users.created_at','desc')->paginate(10);
+
+            $users = User::whereNotIn('user_level_id', [0, 2])->orderBy('users.created_at','desc')->paginate(10);
 
         }
 

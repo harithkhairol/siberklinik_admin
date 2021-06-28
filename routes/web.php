@@ -5,6 +5,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\TimeSlotController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,5 +79,13 @@ Route::get('/user', [AdminController::class, 'index'])->name('user');
 Route::get('/user/{email}/', [AdminController::class, 'show'])->name('user.show');
 
 Route::post('/user/{email}/update', [AdminController::class, 'update'])->name('user.update');
+
+Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
+
+Route::post('/customer/{email}/delete', [CustomerController::class, 'destroy'])->name('customer.destroy');
+
+Route::get('/customer/{email}/', [CustomerController::class, 'show'])->name('customer.show');
+
+Route::post('/customer/{email}/update', [CustomerController::class, 'update'])->name('customer.update');
 
 require __DIR__.'/auth.php';
